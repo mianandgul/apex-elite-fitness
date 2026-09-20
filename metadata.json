@@ -1,0 +1,6 @@
+{
+  "name": "VANCE ATHLETICS | Elite Personal Fitness & Performance Coaching",
+  "description": "High-performance personal training, physique transformation, and bespoke athletic coaching by Master Coach Marcus Vance. Dark athletic aesthetics, results-driven programming, and private studio training.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
