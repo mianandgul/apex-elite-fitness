@@ -4,7 +4,7 @@ import { TESTIMONIALS } from '../data/content';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-24 bg-[#08080b] border-b border-[#1f1f26] relative">
+    <section className="py-24 bg-[#08080b] border-b border-[#1f1f26] relative content-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -37,9 +37,9 @@ export const Testimonials: React.FC = () => {
                   <span className="text-xs text-zinc-400 font-bold ml-2">5.0</span>
                 </div>
 
-                <h4 className="font-display text-lg font-bold uppercase text-white tracking-wide mb-3">
+                <h3 className="font-display text-lg font-bold uppercase text-white tracking-wide mb-3">
                   "{test.highlight}"
-                </h4>
+                </h3>
 
                 <p className="text-xs text-zinc-300 leading-relaxed mb-6 italic">
                   "{test.review}"
@@ -51,6 +51,10 @@ export const Testimonials: React.FC = () => {
                 <img
                   src={test.avatar}
                   alt={test.name}
+                  width={44}
+                  height={44}
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-11 h-11 rounded-full object-cover border border-red-500/40"
                 />

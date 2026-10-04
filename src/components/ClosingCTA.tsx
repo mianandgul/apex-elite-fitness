@@ -9,13 +9,17 @@ interface ClosingCTAProps {
 
 export const ClosingCTA: React.FC<ClosingCTAProps> = ({ onOpenBooking }) => {
   return (
-    <section className="relative py-24 bg-[#0a0608] border-b border-[#1f1f26] overflow-hidden">
+    <section className="relative py-24 bg-[#0a0608] border-b border-[#1f1f26] overflow-hidden content-auto">
       {/* Background Photography with Heavy Dark/Red Vignette */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
         <img
-          src={ASSETS.conditioningFocus}
-          alt="Athletic Conditioning in Studio"
-          referrerPolicy="no-referrer"
+          src={ASSETS.conditioningFocus800}
+          alt=""
+          aria-hidden="true"
+          width={800}
+          height={600}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover object-center opacity-25 filter grayscale contrast-125"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#070709] via-[#070709]/90 to-[#0e0709]/80" />

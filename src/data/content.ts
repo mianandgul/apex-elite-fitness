@@ -245,7 +245,7 @@ export const TESTIMONIALS: Testimonial[] = [
     highlight: 'Saved my lower back while putting me in the best shape of my life.',
     review: 'As an orthopedic surgeon, I am notoriously skeptical of personal trainers. Most push bad mechanics. Marcus Vance is the exception. His understanding of joint biomechanics, shear forces, and muscle recruitment is second to none.',
     program: 'Private 1-on-1 Coaching',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&crop=faces&w=96&h=96&q=75',
   },
   {
     id: 'test-2',
@@ -256,7 +256,7 @@ export const TESTIMONIALS: Testimonial[] = [
     highlight: 'Down 19 lbs, deadlifting 225 lbs, and zero afternoon crashes.',
     review: 'Marcus built a program that fits into my demanding schedule without sacrificing family dinners or client lunches. The carb-cycling protocol gave me immense energy during meetings and shredded stubborn body fat.',
     program: 'The 12-Week Rebuild',
-    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&crop=faces&w=96&h=96&q=75',
   },
   {
     id: 'test-3',
@@ -267,7 +267,7 @@ export const TESTIMONIALS: Testimonial[] = [
     highlight: 'Discipline in the gym directly 10x’d my company’s output.',
     review: 'Training with Vance Athletics is not casual fitness; it is an executive performance system. When you look in the mirror and see defined abs and broad shoulders, your boardroom presence transforms overnight.',
     program: 'The Vance Method Pro',
-    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&crop=faces&w=96&h=96&q=75',
   },
 ];
 

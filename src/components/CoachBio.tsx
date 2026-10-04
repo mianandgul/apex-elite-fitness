@@ -9,7 +9,7 @@ interface CoachBioProps {
 
 export const CoachBio: React.FC<CoachBioProps> = ({ onOpenBooking }) => {
   return (
-    <section id="coach" className="py-24 bg-[#09090d] border-b border-[#1f1f26] relative overflow-hidden">
+    <section id="coach" className="py-24 bg-[#09090d] border-b border-[#1f1f26] relative overflow-hidden content-auto">
       {/* Red Ambient Light */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-red-600/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -25,12 +25,19 @@ export const CoachBio: React.FC<CoachBioProps> = ({ onOpenBooking }) => {
               <div className="absolute -top-3 -left-3 w-full h-full border-2 border-red-600/40 rounded-sm pointer-events-none" />
               
               <div className="rounded-sm overflow-hidden border border-[#262633] bg-[#111116] shadow-2xl relative">
-                <img
-                  src={ASSETS.coachPortrait}
-                  alt="Marcus Vance - Master Athletic Performance Specialist"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover object-top"
-                />
+                <picture>
+                  <source media="(max-width: 640px)" srcSet={ASSETS.coachPortrait500} type="image/webp" />
+                  <source media="(min-width: 641px)" srcSet={ASSETS.coachPortrait900} type="image/webp" />
+                  <img
+                    src={ASSETS.coachPortrait}
+                    width={450}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                    alt="Marcus Vance - Master Athletic Performance Specialist"
+                    className="w-full h-auto object-cover object-top"
+                  />
+                </picture>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-[#09090d] via-transparent to-transparent pointer-events-none" />
 
@@ -38,9 +45,9 @@ export const CoachBio: React.FC<CoachBioProps> = ({ onOpenBooking }) => {
                   <span className="text-[10px] font-black uppercase tracking-[0.25em] text-red-500 block">
                     FOUNDER & HEAD COACH
                   </span>
-                  <h3 className="font-display text-2xl font-extrabold uppercase text-white tracking-wide">
+                  <span className="font-display text-2xl font-extrabold uppercase text-white tracking-wide block">
                     {BRAND.coachName}
-                  </h3>
+                  </span>
                   <p className="text-xs text-zinc-400">
                     Former D1 Decathlete • 12+ Years Private Coaching
                   </p>
@@ -132,12 +139,19 @@ export const CoachBio: React.FC<CoachBioProps> = ({ onOpenBooking }) => {
             </div>
 
             <div className="lg:col-span-6 h-full min-h-[320px] relative">
-              <img
-                src={ASSETS.eliteGymFacility}
-                alt="Vance Athletics Private Strength Facility in West Hollywood"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover min-h-[320px] lg:min-h-[420px]"
-              />
+              <picture>
+                <source media="(max-width: 640px)" srcSet={ASSETS.eliteGymFacility600} type="image/webp" />
+                <source media="(min-width: 641px)" srcSet={ASSETS.eliteGymFacility1000} type="image/webp" />
+                <img
+                  src={ASSETS.eliteGymFacility}
+                  width={600}
+                  height={420}
+                  loading="lazy"
+                  decoding="async"
+                  alt="Vance Athletics Private Strength Facility in West Hollywood"
+                  className="w-full h-full object-cover min-h-[320px] lg:min-h-[420px]"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-r from-[#0e0e14] via-transparent to-transparent pointer-events-none hidden lg:block" />
               <div className="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1.5 rounded-sm border border-white/10 text-xs font-semibold text-white">
                 Ironworks Blvd • Private Access

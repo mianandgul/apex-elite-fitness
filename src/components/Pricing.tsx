@@ -8,7 +8,7 @@ interface PricingProps {
 
 export const Pricing: React.FC<PricingProps> = ({ onOpenBooking }) => {
   return (
-    <section id="pricing" className="py-24 bg-[#070709] border-b border-[#1f1f26] relative overflow-hidden">
+    <section id="pricing" className="py-24 bg-[#070709] border-b border-[#1f1f26] relative overflow-hidden content-auto">
       {/* Red Ambient Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-red-600/10 rounded-full blur-[180px] pointer-events-none" />
 
@@ -56,7 +56,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenBooking }) => {
                   <div className="mb-4">
                     <span
                       className={`text-[10px] font-black uppercase tracking-widest block mb-1 ${
-                        isFeatured ? 'text-red-200' : 'text-red-500'
+                        isFeatured ? 'text-white' : 'text-red-400'
                       }`}
                     >
                       {plan.tier}
@@ -73,7 +73,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenBooking }) => {
                     </span>
                     <span
                       className={`text-xs uppercase font-bold tracking-wider ${
-                        isFeatured ? 'text-red-200' : 'text-zinc-400'
+                        isFeatured ? 'text-white/90' : 'text-zinc-400'
                       }`}
                     >
                       / {plan.period}
@@ -82,7 +82,7 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenBooking }) => {
 
                   <p
                     className={`text-xs leading-relaxed mb-6 ${
-                      isFeatured ? 'text-red-100' : 'text-zinc-400'
+                      isFeatured ? 'text-white/95 font-medium' : 'text-zinc-300'
                     }`}
                   >
                     {plan.description}
@@ -120,10 +120,10 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenBooking }) => {
                 <div className="pt-6 border-t border-white/10">
                   <div
                     className={`text-[11px] mb-4 ${
-                      isFeatured ? 'text-red-200' : 'text-zinc-400'
+                      isFeatured ? 'text-white' : 'text-zinc-400'
                     }`}
                   >
-                    <strong className={isFeatured ? 'text-white' : 'text-zinc-200'}>
+                    <strong className="text-white">
                       Target:
                     </strong>{' '}
                     {plan.idealFor}
@@ -153,9 +153,9 @@ export const Pricing: React.FC<PricingProps> = ({ onOpenBooking }) => {
             <ShieldCheck className="w-7 h-7" />
           </div>
           <div className="flex-1">
-            <h4 className="font-display text-xl font-bold uppercase text-white tracking-wide mb-1">
+            <h3 className="font-display text-xl font-bold uppercase text-white tracking-wide mb-1">
               THE VANCE 30-DAY PERFORMANCE GUARANTEE
-            </h4>
+            </h3>
             <p className="text-xs text-zinc-400 leading-relaxed">
               If you adhere to your training sessions and log your nutrition protocols as prescribed, yet do not experience measurable improvement in body composition or physical performance in the first 30 days, you will receive a full 100% refund. No disputes.
             </p>

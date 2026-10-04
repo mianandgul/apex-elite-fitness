@@ -92,12 +92,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking }) => {
 
               {/* Main Image Container */}
               <div className="relative rounded-sm overflow-hidden border border-[#262633] bg-[#111116] shadow-2xl">
-                <img
-                  src={ASSETS.heroTrainer}
-                  alt="Marcus Vance - Elite Strength and Performance Coach in Dark Studio"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover object-center max-h-[640px] transform hover:scale-[1.02] transition-transform duration-700"
-                />
+                <picture>
+                  <source media="(max-width: 640px)" srcSet={ASSETS.heroTrainer640} type="image/webp" />
+                  <source media="(max-width: 1024px)" srcSet={ASSETS.heroTrainer1024} type="image/webp" />
+                  <img
+                    src={ASSETS.heroTrainer}
+                    width={640}
+                    height={768}
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    alt="Marcus Vance - Elite Strength and Performance Coach in Dark Studio"
+                    className="w-full h-auto object-cover object-center max-h-[640px] transform hover:scale-[1.02] transition-transform duration-700"
+                  />
+                </picture>
 
                 {/* Dark Gradient Overlay at Bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-transparent to-transparent opacity-80 pointer-events-none" />

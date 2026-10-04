@@ -13,9 +13,9 @@ export const ProofBar: React.FC = () => {
             <span className="text-[10px] uppercase font-black tracking-[0.25em] text-red-500 block mb-1">
               CLINICAL ACCREDITATION
             </span>
-            <h3 className="font-display text-xl sm:text-2xl font-bold uppercase text-white tracking-wide">
+            <h2 className="font-display text-xl sm:text-2xl font-bold uppercase text-white tracking-wide">
               GOLD-STANDARD CREDENTIALS & SPECIALIZATIONS
-            </h3>
+            </h2>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 w-full md:w-auto">

@@ -14,7 +14,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -114,7 +114,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-zinc-400 hover:text-white focus:outline-none"
-              aria-label="Toggle Navigation"
+              aria-label={mobileMenuOpen ? 'Close Navigation Menu' : 'Open Navigation Menu'}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-nav-panel"
             >
               {mobileMenuOpen ? <X className="w-6 h-6 text-red-500" /> : <Menu className="w-6 h-6" />}
             </button>

@@ -30,6 +30,11 @@
   box-shadow: 0 0 60px -8px rgba(239, 68, 68, 0.35);
 }
 
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}
+
 /* Custom dark scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

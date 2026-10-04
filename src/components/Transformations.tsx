@@ -25,7 +25,7 @@ export const Transformations: React.FC<TransformationsProps> = ({ onOpenBooking 
   });
 
   return (
-    <section id="transformations" className="py-24 bg-[#070709] border-b border-[#1f1f26] relative">
+    <section id="transformations" className="py-24 bg-[#070709] border-b border-[#1f1f26] relative content-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -80,8 +80,11 @@ export const Transformations: React.FC<TransformationsProps> = ({ onOpenBooking 
                 <div className="relative aspect-[4/3] bg-[#121218] overflow-hidden">
                   <img
                     src={displayImg}
+                    width={400}
+                    height={300}
+                    loading="lazy"
+                    decoding="async"
                     alt={`${item.name} ${currentMode} transformation`}
-                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c11] via-transparent to-transparent pointer-events-none" />
@@ -90,6 +93,7 @@ export const Transformations: React.FC<TransformationsProps> = ({ onOpenBooking 
                   <div className="absolute top-3 right-3 flex items-center bg-[#07070a]/90 backdrop-blur-md p-1 rounded-sm border border-white/10 z-10">
                     <button
                       onClick={() => toggleView(item.id, 'before')}
+                      aria-label={`Show ${item.name} before transformation photo`}
                       className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                         currentMode === 'before'
                           ? 'bg-zinc-700 text-white'
@@ -100,6 +104,7 @@ export const Transformations: React.FC<TransformationsProps> = ({ onOpenBooking 
                     </button>
                     <button
                       onClick={() => toggleView(item.id, 'after')}
+                      aria-label={`Show ${item.name} after transformation photo`}
                       className={`px-2.5 py-1 text-[10px] font-black uppercase tracking-wider rounded-xs transition-colors cursor-pointer ${
                         currentMode === 'after'
                           ? 'bg-red-600 text-white'
@@ -200,9 +205,9 @@ export const Transformations: React.FC<TransformationsProps> = ({ onOpenBooking 
               <Trophy className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-display text-xl font-bold uppercase text-white tracking-wide">
+              <h3 className="font-display text-xl font-bold uppercase text-white tracking-wide">
                 AVERAGE 12-WEEK CLIENT METRICS
-              </h4>
+              </h3>
               <p className="text-xs text-zinc-400">
                 Aggregated from 650+ documented in-person and hybrid coaching cases over 12 years.
               </p>

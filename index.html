@@ -9,9 +9,18 @@
     <meta property="og:description" content="High-performance personal training, physique transformation, and bespoke athletic coaching by Master Coach Marcus Vance. Dark athletic aesthetics, results-driven programming, and private studio training." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#070709" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Non-render-blocking font loading -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,700;1,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    </noscript>
+    <!-- Preload Hero LCP image for mobile and desktop -->
+    <link rel="preload" as="image" href="/assets/hero_trainer_mobile.webp" type="image/webp" fetchpriority="high" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="/assets/hero_trainer_desktop.webp" type="image/webp" fetchpriority="high" media="(min-width: 769px)">
   </head>
   <body class="bg-[#08080a] text-zinc-100 font-sans antialiased selection:bg-red-600 selection:text-white min-h-screen">
     <div id="root"></div>

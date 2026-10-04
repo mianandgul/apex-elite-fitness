@@ -71,7 +71,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-assessment-title">
       <div className="relative w-full max-w-2xl bg-[#0c0c12] border-2 border-red-600/70 rounded-sm shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
         
         {/* Modal Top Header Bar */}
@@ -84,16 +84,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <span className="text-[10px] font-black uppercase tracking-[0.25em] text-red-500 block">
                 APPLICATION & INTAKE
               </span>
-              <h3 className="font-display text-2xl font-black uppercase text-white tracking-wide leading-none">
+              <h2 id="modal-assessment-title" className="font-display text-2xl font-black uppercase text-white tracking-wide leading-none">
                 PRIVATE COACHING ASSESSMENT
-              </h3>
+              </h2>
             </div>
           </div>
 
           <button
             onClick={onClose}
             className="p-2 text-zinc-400 hover:text-white rounded-sm hover:bg-white/5 transition-colors cursor-pointer"
-            aria-label="Close Modal"
+            aria-label="Close Consultation Assessment Dialog"
           >
             <X className="w-6 h-6" />
           </button>
@@ -176,54 +176,65 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Personal Details */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                  <label htmlFor="booking-name" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                     FULL NAME *
                   </label>
                   <input
+                    id="booking-name"
+                    name="name"
+                    autoComplete="name"
                     type="text"
                     required
                     placeholder="e.g. Alexander Vance"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-500"
+                    className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-400"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                  <label htmlFor="booking-email" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                     EMAIL ADDRESS *
                   </label>
                   <input
+                    id="booking-email"
+                    name="email"
+                    autoComplete="email"
                     type="email"
                     required
                     placeholder="e.g. alex@vanguard.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-500"
+                    className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-400"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                  <label htmlFor="booking-phone" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                     PHONE NUMBER (FOR SMS/CALL) *
                   </label>
                   <input
+                    id="booking-phone"
+                    name="phone"
+                    autoComplete="tel"
                     type="tel"
                     required
                     placeholder="e.g. (310) 555-0199"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-500"
+                    className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-400"
                   />
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                  <label htmlFor="booking-goal" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                     PRIMARY OBJECTIVE
                   </label>
                   <select
+                    id="booking-goal"
+                    name="goal"
                     value={formData.goal}
                     onChange={(e) => setFormData({ ...formData, goal: e.target.value })}
                     className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white"
@@ -239,10 +250,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               {/* Coaching Format & Timeslot */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                  <label htmlFor="booking-format" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                     PREFERRED COACHING FORMAT
                   </label>
                   <select
+                    id="booking-format"
+                    name="format"
                     value={formData.format}
                     onChange={(e) => setFormData({ ...formData, format: e.target.value })}
                     className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white"
@@ -255,10 +268,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                  <label htmlFor="booking-timeslot" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                     PREFERRED CALL WINDOW
                   </label>
                   <select
+                    id="booking-timeslot"
+                    name="timeSlot"
                     value={formData.timeSlot}
                     onChange={(e) => setFormData({ ...formData, timeSlot: e.target.value })}
                     className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white"
@@ -272,15 +287,17 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               {/* Additional Context or Injuries */}
               <div>
-                <label className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5">
+                <label htmlFor="booking-notes" className="text-xs font-bold uppercase tracking-wider text-zinc-300 block mb-1.5 cursor-pointer">
                   CURRENT CHALLENGES, PAST INJURIES, OR SPECIFIC GOALS (OPTIONAL)
                 </label>
                 <textarea
+                  id="booking-notes"
+                  name="notes"
                   rows={3}
                   placeholder="Share details on previous training, joint issues (e.g. lower back, shoulder), or dietary restrictions..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-500"
+                  className="w-full bg-[#12121a] border border-[#262636] focus:border-red-500 focus:outline-none px-4 py-2.5 rounded-sm text-sm text-white placeholder-zinc-400"
                 />
               </div>
 

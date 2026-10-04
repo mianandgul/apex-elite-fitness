@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProofBar } from './components/ProofBar';
@@ -12,12 +12,27 @@ import { Testimonials } from './components/Testimonials';
 import { FAQ } from './components/FAQ';
 import { ClosingCTA } from './components/ClosingCTA';
 import { Footer } from './components/Footer';
-import { BookingModal } from './components/BookingModal';
+
+// Code-split BookingModal to eliminate non-critical JavaScript from initial load
+const BookingModal = lazy(() => import('./components/BookingModal').then(module => ({ default: module.BookingModal })));
 
 export default function App() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [selectedProgram, setSelectedProgram] = useState<string | undefined>(undefined);
   const [blueprintNote, setBlueprintNote] = useState<string | undefined>(undefined);
+
+  // Preload BookingModal during idle time so it opens with zero delay on click
+  useEffect(() => {
+    if ('requestIdleCallback' in window) {
+      (window as any).requestIdleCallback(() => {
+        import('./components/BookingModal');
+      });
+    } else {
+      setTimeout(() => {
+        import('./components/BookingModal');
+      }, 1500);
+    }
+  }, []);
 
   const handleOpenBooking = (programName?: string) => {
     setSelectedProgram(programName);
@@ -75,13 +90,17 @@ export default function App() {
       {/* Footer */}
       <Footer />
 
-      {/* Consultation & Assessment Modal */}
-      <BookingModal
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        initialProgram={selectedProgram}
-        initialBlueprint={blueprintNote}
-      />
+      {/* Consultation & Assessment Modal - Lazy loaded with Suspense */}
+      {isBookingOpen && (
+        <Suspense fallback={null}>
+          <BookingModal
+            isOpen={isBookingOpen}
+            onClose={() => setIsBookingOpen(false)}
+            initialProgram={selectedProgram}
+            initialBlueprint={blueprintNote}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

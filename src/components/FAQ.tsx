@@ -14,7 +14,7 @@ export const FAQ: React.FC<FAQProps> = ({ onOpenBooking }) => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-[#0a0a0e] border-b border-[#1f1f26] relative">
+    <section id="faq" className="py-24 bg-[#0a0a0e] border-b border-[#1f1f26] relative content-auto">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -43,24 +43,35 @@ export const FAQ: React.FC<FAQProps> = ({ onOpenBooking }) => {
                 key={faq.id}
                 className="bg-[#0e0e14] border border-[#20202a] hover:border-red-600/40 rounded-sm overflow-hidden transition-colors"
               >
-                <button
-                  onClick={() => toggle(faq.id)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
-                >
-                  <span className="font-display text-lg sm:text-xl font-bold uppercase text-white tracking-wide">
-                    {faq.question}
-                  </span>
-                  <div
-                    className={`w-8 h-8 rounded-sm bg-[#161620] border border-[#262636] flex items-center justify-center text-zinc-300 transition-transform duration-300 shrink-0 ${
-                      isOpen ? 'rotate-180 bg-red-600/20 text-red-400 border-red-500/40' : ''
-                    }`}
+                <h3 className="m-0 p-0 font-normal">
+                  <button
+                    type="button"
+                    onClick={() => toggle(faq.id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${faq.id}`}
+                    id={`faq-btn-${faq.id}`}
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
                   >
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </button>
+                    <span className="font-display text-lg sm:text-xl font-bold uppercase text-white tracking-wide">
+                      {faq.question}
+                    </span>
+                    <div
+                      className={`w-8 h-8 rounded-sm bg-[#161620] border border-[#262636] flex items-center justify-center text-zinc-300 transition-transform duration-300 shrink-0 ${
+                        isOpen ? 'rotate-180 bg-red-600/20 text-red-400 border-red-500/40' : ''
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+                </h3>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-2 text-zinc-300 text-sm leading-relaxed border-t border-[#181822]">
+                  <div
+                    id={`faq-answer-${faq.id}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${faq.id}`}
+                    className="px-5 sm:px-6 pb-6 pt-2 text-zinc-300 text-sm leading-relaxed border-t border-[#181822]"
+                  >
                     <p>{faq.answer}</p>
                   </div>
                 )}

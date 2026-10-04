@@ -52,7 +52,7 @@ export const TransformationCalculator: React.FC<CalculatorProps> = ({ onApplyWit
   };
 
   return (
-    <section id="calculator" className="py-24 bg-[#0a0a0e] border-b border-[#1f1f26] relative overflow-hidden">
+    <section id="calculator" className="py-24 bg-[#0a0a0e] border-b border-[#1f1f26] relative overflow-hidden content-auto">
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-red-600/8 rounded-full blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -113,11 +113,16 @@ export const TransformationCalculator: React.FC<CalculatorProps> = ({ onApplyWit
 
               {/* 2. Current Bodyweight Slider */}
               <div>
-                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
+                <label htmlFor="calc-weight" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2 cursor-pointer">
                   <span>2. CURRENT BODY WEIGHT</span>
                   <span className="font-display text-xl text-red-500 font-black">{currentWeight} LBS</span>
-                </div>
+                </label>
                 <input
+                  id="calc-weight"
+                  aria-label="Current body weight in pounds"
+                  aria-valuemin={120}
+                  aria-valuemax={320}
+                  aria-valuenow={currentWeight}
                   type="range"
                   min="120"
                   max="320"
@@ -135,11 +140,16 @@ export const TransformationCalculator: React.FC<CalculatorProps> = ({ onApplyWit
 
               {/* 3. Estimated Body Fat % */}
               <div>
-                <div className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2">
+                <label htmlFor="calc-bodyfat" className="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-zinc-300 mb-2 cursor-pointer">
                   <span>3. ESTIMATED BODY FAT PERCENTAGE</span>
                   <span className="font-display text-xl text-red-500 font-black">{currentBodyFat}%</span>
-                </div>
+                </label>
                 <input
+                  id="calc-bodyfat"
+                  aria-label="Estimated body fat percentage"
+                  aria-valuemin={10}
+                  aria-valuemax={40}
+                  aria-valuenow={currentBodyFat}
                   type="range"
                   min="10"
                   max="40"

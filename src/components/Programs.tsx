@@ -18,7 +18,7 @@ export const Programs: React.FC<ProgramsProps> = ({ onOpenBooking }) => {
   });
 
   return (
-    <section id="programs" className="py-24 bg-[#070709] border-b border-[#1f1f26] relative">
+    <section id="programs" className="py-24 bg-[#070709] border-b border-[#1f1f26] relative content-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header with Tabs */}
@@ -174,9 +174,9 @@ export const Programs: React.FC<ProgramsProps> = ({ onOpenBooking }) => {
               <MapPin className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-display text-lg font-bold uppercase text-white tracking-wide">
+              <h3 className="font-display text-lg font-bold uppercase text-white tracking-wide">
                 EXCLUSIVE WEST HOLLYWOOD PRIVATE FACILITY
-              </h4>
+              </h3>
               <p className="text-xs text-zinc-400">
                 742 Ironworks Blvd. By appointment only. Equipped with custom Eleiko competition equipment & infrared recovery bay.
               </p>

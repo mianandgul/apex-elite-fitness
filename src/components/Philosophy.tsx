@@ -11,7 +11,7 @@ export const Philosophy: React.FC<PhilosophyProps> = ({ onOpenBooking }) => {
   const pillarIcons = [Target, Zap, Apple, Moon];
 
   return (
-    <section id="philosophy" className="py-24 bg-[#08080b] border-b border-[#1f1f26] relative overflow-hidden">
+    <section id="philosophy" className="py-24 bg-[#08080b] border-b border-[#1f1f26] relative overflow-hidden content-auto">
       {/* Decorative Glow */}
       <div className="absolute top-1/2 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-[140px] pointer-events-none" />
 
@@ -114,12 +114,19 @@ export const Philosophy: React.FC<PhilosophyProps> = ({ onOpenBooking }) => {
 
             <div className="lg:col-span-5 relative">
               <div className="rounded-sm overflow-hidden border border-[#2b252c] shadow-2xl relative">
-                <img
-                  src={ASSETS.trainingAction}
-                  alt="High Intensity Strength Training with Barbell"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-64 sm:h-72 object-cover object-center"
-                />
+                <picture>
+                  <source media="(max-width: 640px)" srcSet={ASSETS.trainingAction600} type="image/webp" />
+                  <source media="(min-width: 641px)" srcSet={ASSETS.trainingAction1000} type="image/webp" />
+                  <img
+                    src={ASSETS.trainingAction}
+                    width={600}
+                    height={448}
+                    loading="lazy"
+                    decoding="async"
+                    alt="High Intensity Strength Training with Barbell"
+                    className="w-full h-64 sm:h-72 object-cover object-center"
+                  />
+                </picture>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-3 left-3 right-3 text-xs font-semibold text-zinc-200 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded-sm border border-white/10">
                   Heavy barbell deadlift execution with instantaneous velocity and bar-path tracking.

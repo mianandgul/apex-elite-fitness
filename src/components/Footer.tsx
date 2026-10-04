@@ -15,6 +15,7 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[#050507] text-zinc-400 text-xs border-t border-[#1a1a24]">
+      <h2 className="sr-only">Footer Directory and Information</h2>
       
       {/* Newsletter Dispatch Strip */}
       <div className="border-b border-[#14141d] py-12 bg-[#08080c]">
@@ -43,13 +44,19 @@ export const Footer: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-2">
+                  <label htmlFor="footer-newsletter-email" className="sr-only">
+                    Email address for Discipline Dispatch newsletter
+                  </label>
                   <input
+                    id="footer-newsletter-email"
                     type="email"
+                    name="email"
+                    autoComplete="email"
                     required
                     placeholder="Enter your email address..."
                     value={emailInput}
                     onChange={(e) => setEmailInput(e.target.value)}
-                    className="flex-1 bg-[#101018] border border-[#262638] focus:border-red-500 focus:outline-none px-4 py-3 rounded-sm text-xs text-white placeholder-zinc-500"
+                    className="flex-1 bg-[#101018] border border-[#262638] focus:border-red-500 focus:outline-none px-4 py-3 rounded-sm text-xs text-white placeholder-zinc-400"
                   />
                   <button
                     type="submit"
@@ -162,7 +169,7 @@ export const Footer: React.FC = () => {
                 <Mail className="w-4 h-4 text-red-500 shrink-0" />
                 <a href={`mailto:${BRAND.email}`} className="hover:text-white transition-colors">{BRAND.email}</a>
               </div>
-              <div className="pt-2 text-[11px] text-zinc-500">
+              <div className="pt-2 text-[11px] text-zinc-400">
                 <strong>Hours:</strong> Mon–Sat 5:30 AM – 8:30 PM (Appointment Only)
               </div>
             </div>
@@ -171,7 +178,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal & Hostinger Production Ready Note */}
-        <div className="mt-12 pt-8 border-t border-[#15151f] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-500">
+        <div className="mt-12 pt-8 border-t border-[#15151f] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-400">
           <div>
             © {new Date().getFullYear()} Vance Athletics LLC. All Rights Reserved. Engineered for Peak Human Performance.
           </div>
